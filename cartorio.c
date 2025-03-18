@@ -6,6 +6,9 @@
 
 int registro()// Função responssavel por cadastrar o usuário no sistema
 {
+		int voltar=0;//Definindo variavel
+		int laco=1;
+	
 	//Inicio da criação de variáveis/string
 	char arquivo[40];
 	char cpf[40];
@@ -55,14 +58,46 @@ int registro()// Função responssavel por cadastrar o usuário no sistema
 	
 	file = fopen(arquivo, "a");// abre o arquivo e o "A" significa atualizar
 	fprintf(file,cargo);// salvo o cargo que foi cadastrado
-	fclose(file);// fecha o arquivo
+	fclose(file);// fecha o arquivo	
 	
-	system("pause");
+	system("cls");
+	
+	for(laco=1; laco=1;)//Inicio da escolha de registrar mais usuários ou voltar ao menu
+{
+		
+		printf("\t1 - Registrar mais usuários\n");
+		printf("\t2 - Voltar ao menu\n");
+		printf("Opção: ");
+	
+		scanf("%d", &voltar);
+		system("cls");	
+		
+		switch(voltar)
+		{
+			case 1:
+			registro();
+			break;
+			
+			case 2:
+			main();
+			break;
+			
+			default:
+			printf("Essa opção não está disponivel!\n");
+			system("pause");
+			break;
+		}
+	
+}
+	system("pause");//Fim da escolha
 		
 }
 
 int consulta()
 {
+	int voltar=0;//Definindo variavel
+	int laco=1;
+	
 	setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
 	//Inicio da criação de variáveis/string
 	char cpf[40];
@@ -87,12 +122,42 @@ int consulta()
 		printf("\n\n");
 	}
 	
-	system("pause");
+	for(laco=1; laco=1;)//Inicio da escolha de consultar outro usuario ou voltar ao menu
+	{
+		printf("\n");
+		printf("\t1 - Consultar outro usuário\n");
+		printf("\t2 - Voltar ao menu\n");
+		printf("\nOpção: ");
+		
+		scanf("%d", &voltar);
+		system("cls");
+		
+		switch (voltar)
+		{
+			case 1:
+			consulta();
+			break;
+			
+			case 2:
+			main();
+			break;	
+			
+			default:
+			printf("Essa opção não está disponivel!\n");
+			system("pause");
+			break;
+		}
+	}
+	
+	system("pause");//Fim da escolha
 	
 }
 
 int deletar()
 {
+	int voltar=0;//Definindo vairiavel
+	int laco=1;
+	
 	char cpf[40];
 	
 	printf("Digite o CPF do usuário a ser deletado: "); // Coletando informações para deletar o usuário
@@ -106,8 +171,35 @@ int deletar()
 	if (file == NULL) // realiza uma pesquisa para ver se o usuário realmente esta cadastrado
 	{
 		printf("O usuário não se encontra no sistema!\n");
-		system("pause");
 	}
+	
+	for (laco=1; laco=1;)// inicio da escolha de deletar usuario ou voltar ao menu
+	{
+		printf("\n");
+		printf("\t1 - Deletar outro usuário\n");
+		printf("\t2 - Voltar ao menu\n");
+		printf("\nOpção: ");
+		
+		scanf("%d", &voltar);
+		system("cls");
+		
+		switch (voltar)
+		{
+			case 1:
+			deletar();
+			break;
+			
+			case 2:
+			main();
+			break;
+			
+			default:
+			printf("Essa opção não está disponivel!\n");
+			system("pause");
+			break;
+		}
+	}
+	system("pause");// sim da escolha
 }
 
 
