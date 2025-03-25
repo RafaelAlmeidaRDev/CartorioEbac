@@ -8,7 +8,6 @@ int registro()// Função responssavel por cadastrar o usuário no sistema
 {
 		int voltar=0;//Definindo variavel
 		int laco=1;
-	
 	//Inicio da criação de variáveis/string
 	char arquivo[40];
 	char cpf[40];
@@ -207,43 +206,59 @@ int main()
 {
 	int opcao=0; // definindo as variavéis
 	int laco=1;
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	for (laco=1; laco=1;)
+	printf("### Cartório da EBAC ####\n\n");
+	printf("Login de administrador!\n\nDigite a sua senha: ");
+	scanf("%s", senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
-		
-		system("cls"); // limpa a tela
-		
-		setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
 	
-		printf("### Cartório da EBAC ####\n\n"); // inicio do menu
-		printf("Escolha a opção desejada no menu:\n\n");
-		printf("\t1- Registrar nomes\n");
-		printf("\t2- Consultar nomes\n"); 
-		printf("\t3- Deletar nomes\n\n\n"); 
-		printf("Opção: "); // fim do menu
-	
-		scanf("%d", &opcao); // armazenando a escolha do usuário
-	
-		system("cls"); // limpa a tela
+		for (laco=1; laco=1;)
+		{	
 		
-		switch(opcao)
-		{
-			case 1:
-			registro(); // chamada de função
-			break;
+			system("cls"); // limpa a tela
+		
+			setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
+	
+			printf("### Cartório da EBAC ####\n\n"); // inicio do menu
+			printf("Escolha a opção desejada no menu:\n\n");
+			printf("\t1- Registrar nomes\n");
+			printf("\t2- Consultar nomes\n"); 
+			printf("\t3- Deletar nomes\n\n\n"); 
+			printf("Opção: "); // fim do menu
+	
+			scanf("%d", &opcao); // armazenando a escolha do usuário
+	
+			system("cls"); // limpa a tela
+		
+			switch(opcao)
+			{
+				case 1:
+				registro(); // chamada de função
+				break;
 			
-			case 2:
-			consulta(); // chamada de função
-			break;		
+				case 2:
+				consulta(); // chamada de função
+				break;		
 		
-			case 3:
-			deletar(); // chamada de função
-			break;
+				case 3:
+				deletar(); // chamada de função
+				break;
 			
-			default: // Exibe a mensagem para o usuário caso a opção selecionado não exista
-			printf("Essa opção não está disponivel!\n");
-			system("pause");	
-			break;
+				default: // Exibe a mensagem para o usuário caso a opção selecionado não exista
+				printf("Essa opção não está disponivel!\n");
+				system("pause");	
+				break;
+			}
 		}
 	}
+	
+	else
+		printf("Senha incorreta!");
 }
+
