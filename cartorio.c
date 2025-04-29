@@ -6,8 +6,8 @@
 
 int registro()// Função responssavel por cadastrar o usuário no sistema
 {
-		int voltar=0;//Definindo variavel
-		int laco=1;
+	int escolha; //Definindo variavel
+
 	//Inicio da criação de variáveis/string
 	char arquivo[40];
 	char cpf[40];
@@ -60,42 +60,27 @@ int registro()// Função responssavel por cadastrar o usuário no sistema
 	fclose(file);// fecha o arquivo	
 	
 	system("cls");
+	printf("\t1 - Adicionar novo usuário.\n");
+	printf("\t2 - Voltar ao menu.\n");
+	printf("Opção: ");
+	scanf("%d", &escolha);
+	system("cls");
 	
-	for(laco=1; laco=1;)//Inicio da escolha de registrar mais usuários ou voltar ao menu
-{
-		
-		printf("\t1 - Registrar mais usuários\n");
-		printf("\t2 - Voltar ao menu\n");
-		printf("Opção: ");
-	
-		scanf("%d", &voltar);
-		system("cls");	
-		
-		switch(voltar)
-		{
-			case 1:
-			registro();
-			break;
-			
-			case 2:
-			main();
-			break;
-			
-			default:
-			printf("Essa opção não está disponivel!\n");
-			system("pause");
-			break;
-		}
-	
+	if (escolha == 1){
+		registro();
+	}else if(escolha == 2){
+		return 0;
+	}else if(escolha >= 3){
+		printf("Essa opção não esta disponível!\n");
+		printf("Iremos retorna-lo ao menu!\n");
+		system("pause");
+	}
 }
-	system("pause");//Fim da escolha
-		
-}
+
 
 int consulta()
 {
-	int voltar=0;//Definindo variavel
-	int laco=1;
+	int escolha;
 	
 	setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
 	//Inicio da criação de variáveis/string
@@ -117,45 +102,31 @@ int consulta()
 	while(fgets(conteudo, 200, file) != NULL) // retorna as informações do usuário
 	{
 		printf("\nEssas são as informações do usuário: ");
-		printf("%s",conteudo);
+		printf("%s", &conteudo);
 		printf("\n\n");
+	}		
+	printf("\t1 - Consultar outro usuário.\n");
+	printf("\t2 - Voltar ao menu.\n");
+	printf("Opção: ");
+	scanf("%d", &escolha);
+	system("cls");
+	
+	if (escolha == 1){
+		consulta();
+	}else if(escolha == 2){
+		return 0;
+	} else if (escolha >=3){
+		printf("Essa opção não esta disponível!\n");
+		printf("Iremos retorna-lo ao menu!\n");
+		system("pause");
 	}
 	
-	for(laco=1; laco=1;)//Inicio da escolha de consultar outro usuario ou voltar ao menu
-	{
-		printf("\n");
-		printf("\t1 - Consultar outro usuário\n");
-		printf("\t2 - Voltar ao menu\n");
-		printf("\nOpção: ");
-		
-		scanf("%d", &voltar);
-		system("cls");
-		
-		switch (voltar)
-		{
-			case 1:
-			consulta();
-			break;
-			
-			case 2:
-			main();
-			break;	
-			
-			default:
-			printf("Essa opção não está disponivel!\n");
-			system("pause");
-			break;
-		}
-	}
-	
-	system("pause");//Fim da escolha
 	
 }
 
 int deletar()
 {
-	int voltar=0;//Definindo vairiavel
-	int laco=1;
+	int escolha;
 	
 	char cpf[40];
 	
@@ -171,36 +142,25 @@ int deletar()
 	{
 		printf("O usuário não se encontra no sistema!\n");
 	}
-	
-	for (laco=1; laco=1;)// inicio da escolha de deletar usuario ou voltar ao menu
-	{
-		printf("\n");
-		printf("\t1 - Deletar outro usuário\n");
-		printf("\t2 - Voltar ao menu\n");
-		printf("\nOpção: ");
-		
-		scanf("%d", &voltar);
-		system("cls");
-		
-		switch (voltar)
-		{
-			case 1:
-			deletar();
-			break;
-			
-			case 2:
-			main();
-			break;
-			
-			default:
-			printf("Essa opção não está disponivel!\n");
-			system("pause");
-			break;
-		}
-	}
 	system("pause");// sim da escolha
+	system("cls");
+	
+	printf("\t1 - Deletar outro usuário.\n");
+	printf("\t2 - Voltar ao menu.\n");
+	printf("Opção: ");
+	scanf("%d", &escolha);
+	system("cls");
+	
+	if (escolha == 1){
+		deletar();
+	}else if(escolha == 2){
+		return 0;
+	} else if (escolha >=3){
+		printf("Essa opção não esta disponível!\n");
+		printf("Iremos retorna-lo ao menu!\n");
+		system("pause");
+	}
 }
-
 
 int main()
 {
@@ -209,15 +169,17 @@ int main()
 	char senhadigitada[10]="a";
 	int comparacao;
 	
+	setlocale(LC_ALL, "Portuguese"); // definindo a linguagem
+	
 	printf("### Cartório da EBAC ####\n\n");
 	printf("Login de administrador!\n\nDigite a sua senha: ");
 	scanf("%s", senhadigitada);
 	
 	comparacao = strcmp(senhadigitada, "admin");
+	system("cls");
 	
 	if(comparacao == 0)
 	{
-	
 		for (laco=1; laco=1;)
 		{	
 		
@@ -263,7 +225,7 @@ int main()
 			}
 		}
 	}
-	
+
 	else
 		printf("Senha incorreta!");
 }
